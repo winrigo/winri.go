@@ -1,5 +1,5 @@
 /* =========================================
-   WINRI.GO — REAL ORDER TRACKER
+   WINRI.GO — LIVE TRACKER V3
    ========================================= */
 
 const API_URL =
@@ -8,29 +8,16 @@ const API_URL =
 
 async function searchOrders() {
 
-  const input =
-    document.getElementById("usernameInput");
+  const input = document.getElementById("usernameInput");
+  const message = document.getElementById("message");
+  const results = document.getElementById("results");
+  const orderList = document.getElementById("orderList");
+  const usernameDisplay = document.getElementById("usernameDisplay");
 
-  const message =
-    document.getElementById("message");
+  let username = input.value.trim();
 
-  const results =
-    document.getElementById("results");
-
-  const orderList =
-    document.getElementById("orderList");
-
-  const usernameDisplay =
-    document.getElementById("usernameDisplay");
-
-
-  let username =
-    input.value.trim();
-
-
-  // Remove @ from beginning
-  username =
-    username.replace(/^@/, "");
+  // Remove @
+  username = username.replace(/^@/, "");
 
 
   if (!username) {
@@ -41,7 +28,6 @@ async function searchOrders() {
     results.classList.add("hidden");
 
     return;
-
   }
 
 
@@ -50,44 +36,74 @@ async function searchOrders() {
      ========================================= */
 
   message.textContent =
-    "Searching your orders...";
+    "LIVE API V3 — Searching...";
 
   results.classList.add("hidden");
-
   orderList.innerHTML = "";
 
 
   try {
 
-    const response =
-      await fetch(
-        API_URL +
-        "?username=" +
-        encodeURIComponent(username)
-      );
+    const requestURL =
+      API_URL +
+      "?username=" +
+      encodeURIComponent(username) +
+      "&t=" +
+      Date.now();
+
+
+    console.log("WINRI.GO API request:", requestURL);
+
+
+    const response = await fetch(
+      requestURL,
+      {
+        method: "GET",
+        redirect: "follow",
+        cache: "no-store"
+      }
+    );
+
+
+    console.log(
+      "WINRI.GO API response:",
+      response.status,
+      response.url
+    );
 
 
     if (!response.ok) {
-      throw new Error("Unable to connect to tracker.");
+
+      throw new Error(
+        "API HTTP error: " + response.status
+      );
+
     }
 
 
-    const data =
-      await response.json();
+    const data = await response.json();
+
+
+    console.log(
+      "WINRI.GO API data:",
+      data
+    );
 
 
     if (!data.success) {
 
       throw new Error(
         data.message ||
-        "Unable to search orders."
+        "Tracker API returned an error."
       );
 
     }
 
 
     const orders =
-      data.orders || [];
+      Array.isArray(data.orders)
+        ? data.orders
+        : [];
 
 
     /* =========================================
@@ -97,7 +113,9 @@ async function searchOrders() {
     if (orders.length === 0) {
 
       message.textContent =
-        "No orders found. Please check your Telegram username.";
+        "No orders found for @" +
+        username +
+        ".";
 
       results.classList.add("hidden");
 
@@ -107,10 +125,13 @@ async function searchOrders() {
 
 
     /* =========================================
-       SHOW RESULTS
+       SUCCESS
        ========================================= */
 
-    message.textContent = "";
+    message.textContent =
+      orders.length +
+      " order(s) found ♡";
+
 
     results.classList.remove("hidden");
 
@@ -126,6 +147,7 @@ async function searchOrders() {
 
       const card =
         document.createElement("div");
+
 
       card.className =
         "order-card";
@@ -154,19 +176,25 @@ async function searchOrders() {
           <div>
 
             <div class="order-name">
-              ${escapeHTML(order.goName || "GO Order")}
+              ${escapeHTML(
+                order.goName || "GO Order"
+              )}
             </div>
 
             <div class="order-id">
               Last updated:
-              ${escapeHTML(order.lastUpdated || "-")}
+              ${escapeHTML(
+                order.lastUpdated || "-"
+              )}
             </div>
 
           </div>
 
 
           <div class="status ${statusClass}">
-            ${escapeHTML(order.status || "Updating")}
+            ${escapeHTML(
+              order.status || "Updating"
+            )}
           </div>
 
         </div>
@@ -174,72 +202,70 @@ async function searchOrders() {
 
         <div class="order-info">
 
-
           <div class="info-row">
-
             <span>Item</span>
 
             <span>
-              ${escapeHTML(order.item || "-")}
+              ${escapeHTML(
+                order.item || "-"
+              )}
             </span>
-
           </div>
 
 
           <div class="info-row">
-
             <span>Amount</span>
 
             <span>
-              ${escapeHTML(order.amount || "-")}
+              ${escapeHTML(
+                order.amount || "-"
+              )}
             </span>
-
           </div>
 
 
           <div class="info-row">
-
             <span>Item Payment</span>
 
             <span class="payment-text ${paymentClass}">
-              ${escapeHTML(order.payment || "Pending")}
+              ${escapeHTML(
+                order.payment || "Pending"
+              )}
             </span>
-
           </div>
 
 
           <div class="info-row">
-
             <span>EMS</span>
 
             <span class="payment-text ${emsClass}">
-              ${escapeHTML(order.ems || "Not Ready")}
+              ${escapeHTML(
+                order.ems || "Not Ready"
+              )}
             </span>
-
           </div>
 
 
           <div class="info-row">
-
             <span>Postage</span>
 
             <span class="payment-text ${postageClass}">
-              ${escapeHTML(order.postage || "Not Ready")}
+              ${escapeHTML(
+                order.postage || "Not Ready"
+              )}
             </span>
-
           </div>
 
 
           <div class="info-row">
-
             <span>Tracking</span>
 
             <span>
-              ${escapeHTML(order.tracking || "-")}
+              ${escapeHTML(
+                order.tracking || "-"
+              )}
             </span>
-
           </div>
-
 
         </div>
 
@@ -253,11 +279,16 @@ async function searchOrders() {
 
   } catch (error) {
 
-    console.error(error);
+    console.error(
+      "WINRI.GO tracker error:",
+      error
+    );
 
 
     message.textContent =
-      "Unable to load orders right now. Please try again later.";
+      "LIVE API V3 ERROR — " +
+      error.message;
+
 
     results.classList.add("hidden");
 
@@ -343,7 +374,6 @@ function getPaymentClass(value) {
 
 /* =========================================
    SECURITY
-   Prevent Sheet data becoming HTML
    ========================================= */
 
 function escapeHTML(value) {
@@ -365,7 +395,7 @@ function escapeHTML(value) {
 
 
 /* =========================================
-   PRESS ENTER TO SEARCH
+   ENTER TO SEARCH
    ========================================= */
 
 const usernameInput =
