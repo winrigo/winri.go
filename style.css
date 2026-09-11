@@ -1,6 +1,6 @@
-/* ========================================
-   WINRI.GO — V2
-   ======================================== */
+/* =====================================
+   WINRI.GO — V3
+   ===================================== */
 
 * {
   box-sizing: border-box;
@@ -15,35 +15,32 @@ html {
 body {
   min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
-  background:
-    radial-gradient(circle at top left, #f3eaff 0, transparent 35%),
-    linear-gradient(180deg, #faf8ff 0%, #f7f4fc 100%);
+  background: #f8f5ff;
   color: #30283b;
-}
-
-a {
-  color: inherit;
 }
 
 .container {
   width: 100%;
-  max-width: 960px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 30px 24px 50px;
+  padding: 30px 22px 50px;
+}
+
+.hidden {
+  display: none !important;
 }
 
 
-/* ========================================
+/* =====================================
    HEADER
-   ======================================== */
+   ===================================== */
 
 .site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 30px;
-  padding: 10px 4px;
-  margin-bottom: 45px;
+  margin-bottom: 35px;
 }
 
 .brand {
@@ -58,7 +55,7 @@ a {
 }
 
 .subtitle {
-  margin-top: 6px;
+  margin-top: 5px;
   color: #aaa2b2;
   font-size: 9px;
   font-weight: 700;
@@ -67,96 +64,76 @@ a {
 
 .nav {
   display: flex;
-  align-items: center;
-  gap: 24px;
+  gap: 22px;
 }
 
 .nav a {
-  position: relative;
   color: #77707e;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 1.2px;
   text-decoration: none;
-  transition: color 0.2s ease;
 }
 
 .nav a:hover {
   color: #8f6ad8;
 }
 
-.nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -7px;
-  width: 0;
-  height: 2px;
-  border-radius: 20px;
-  background: #a987e7;
-  transition: width 0.2s ease;
-}
 
-.nav a:hover::after {
-  width: 100%;
-}
-
-
-/* ========================================
+/* =====================================
    HERO
-   ======================================== */
+   ===================================== */
 
 .hero {
   position: relative;
   overflow: hidden;
-  margin-bottom: 40px;
-  padding: 75px 45px 45px;
-  border: 1px solid #eee6f8;
-  border-radius: 32px;
+  margin-bottom: 28px;
+  padding: 60px 35px 35px;
+  border: 1px solid #eee7f7;
+  border-radius: 28px;
   background:
-    radial-gradient(circle at 85% 20%, #eadcff 0, transparent 25%),
-    radial-gradient(circle at 15% 90%, #ffe7f2 0, transparent 28%),
+    radial-gradient(circle at 85% 15%, #eadcff 0, transparent 27%),
+    radial-gradient(circle at 12% 90%, #ffe8f2 0, transparent 28%),
     #ffffff;
-  box-shadow: 0 16px 45px rgba(74, 52, 105, 0.07);
+  box-shadow: 0 12px 35px rgba(65, 45, 90, 0.06);
   text-align: center;
 }
 
-.hero::before {
+.hero::after {
   content: "♡";
   position: absolute;
-  top: 25px;
-  right: 40px;
-  color: #e0ccef;
-  font-size: 70px;
-  transform: rotate(12deg);
-  opacity: 0.55;
+  top: 20px;
+  right: 30px;
+  color: #ddc9f1;
+  font-size: 55px;
+  opacity: 0.5;
 }
 
 .hero-badge {
   display: inline-block;
-  margin-bottom: 20px;
-  padding: 8px 13px;
+  margin-bottom: 17px;
+  padding: 7px 12px;
   border-radius: 30px;
   background: #f1eaff;
   color: #8562ca;
   font-size: 9px;
   font-weight: 800;
-  letter-spacing: 1.4px;
+  letter-spacing: 1.3px;
 }
 
 .hero h1 {
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   color: #33293f;
-  font-size: 52px;
+  font-size: 48px;
   line-height: 1.05;
   letter-spacing: -2px;
 }
 
 .hero-description {
-  max-width: 520px;
-  margin: 0 auto 28px;
+  max-width: 500px;
+  margin: 0 auto 25px;
   color: #817987;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.7;
 }
 
@@ -165,110 +142,101 @@ a {
   padding: 14px 24px;
   border-radius: 14px;
   background: #8f6ad8;
-  box-shadow: 0 8px 20px rgba(143, 106, 216, 0.2);
-  color: #fff;
+  color: #ffffff;
   font-size: 13px;
   font-weight: 700;
   text-decoration: none;
-  transition: 0.2s ease;
-}
-
-.hero-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 11px 25px rgba(143, 106, 216, 0.27);
+  box-shadow: 0 8px 20px rgba(143, 106, 216, 0.2);
 }
 
 
-/* ========================================
+/* =====================================
    FEATURES
-   ======================================== */
+   ===================================== */
 
 .features {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin-top: 50px;
+  gap: 12px;
+  margin-top: 40px;
 }
 
 .feature {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 135px;
-  padding: 22px 15px;
-  border: 1px solid #f0eaf6;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.78);
+  padding: 20px 15px;
+  border: 1px solid #eee8f5;
+  border-radius: 17px;
+  background: rgba(255, 255, 255, 0.85);
+  text-align: center;
 }
 
 .feature-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 37px;
-  height: 37px;
-  margin-bottom: 12px;
+  width: 36px;
+  height: 36px;
+  margin: 0 auto 11px;
   border-radius: 50%;
   background: #f1eaff;
   color: #8f6ad8;
-  font-size: 17px;
 }
 
 .feature strong {
-  margin-bottom: 6px;
-  font-size: 13px;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 12px;
 }
 
 .feature span {
+  display: block;
   color: #99919e;
   font-size: 11px;
   line-height: 1.5;
 }
 
 
-/* ========================================
-   COMMON SECTION
-   ======================================== */
+/* =====================================
+   SECTION LABEL
+   ===================================== */
 
 .section-label {
-  margin-bottom: 8px;
-  color: #9a78d9;
+  margin-bottom: 7px;
+  color: #9573d3;
   font-size: 9px;
   font-weight: 800;
   letter-spacing: 2px;
 }
 
 
-/* ========================================
+/* =====================================
    TRACKER
-   ======================================== */
+   ===================================== */
 
 .search-box {
   scroll-margin-top: 25px;
-  margin-bottom: 25px;
-  padding: 40px 32px;
+  padding: 35px 28px;
   border: 1px solid #eee7f7;
-  border-radius: 27px;
-  background: #fff;
-  box-shadow: 0 12px 35px rgba(65, 45, 90, 0.07);
+  border-radius: 25px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(65, 45, 90, 0.06);
   text-align: center;
 }
 
 .search-box h2 {
-  margin-bottom: 10px;
-  font-size: 27px;
+  margin-bottom: 9px;
+  font-size: 25px;
 }
 
 .search-box p {
-  margin-bottom: 25px;
+  margin-bottom: 23px;
   color: #8d858f;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.6;
 }
 
 .search-area {
   display: flex;
-  max-width: 570px;
+  max-width: 560px;
   margin: 0 auto;
   gap: 10px;
 }
@@ -276,66 +244,52 @@ a {
 .search-area input {
   flex: 1;
   min-width: 0;
-  padding: 15px 16px;
-  border: 1px solid #ded5e9;
-  border-radius: 14px;
+  padding: 15px;
+  border: 1px solid #ddd4e8;
+  border-radius: 13px;
   outline: none;
   background: #fcfbff;
-  color: #342d3b;
-  font-size: 15px;
-  transition: 0.2s ease;
-}
-
-.search-area input::placeholder {
-  color: #b8afc1;
+  color: #332b3b;
+  font-size: 14px;
 }
 
 .search-area input:focus {
-  border-color: #a889e1;
-  background: #fff;
+  border-color: #9d7bea;
   box-shadow: 0 0 0 3px rgba(143, 106, 216, 0.08);
 }
 
 .search-area button {
-  padding: 0 28px;
+  padding: 0 25px;
   border: 0;
-  border-radius: 14px;
+  border-radius: 13px;
   background: #8f6ad8;
-  color: #fff;
+  color: #ffffff;
   font-size: 13px;
   font-weight: 700;
   cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.search-area button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 7px 18px rgba(143, 106, 216, 0.22);
 }
 
 #message {
-  min-height: 18px;
-  margin-top: 16px;
-  color: #8b8393;
-  font-size: 13px;
+  min-height: 17px;
+  margin-top: 15px;
+  color: #857c8c;
+  font-size: 12px;
 }
 
 
-/* ========================================
-   RESULTS
-   ======================================== */
+/* =====================================
+   ORDER RESULTS
+   ===================================== */
 
 .results {
-  margin: 28px 0 40px;
+  margin-top: 27px;
 }
 
 .results-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
-  margin-bottom: 15px;
-  padding: 0 5px;
+  margin-bottom: 14px;
 }
 
 .results-header h2 {
@@ -343,27 +297,21 @@ a {
 }
 
 #usernameDisplay {
-  padding: 6px 11px;
+  padding: 6px 10px;
   border-radius: 20px;
   background: #eee7ff;
   color: #7957ba;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
 }
 
 .order-card {
-  margin-bottom: 14px;
-  padding: 22px;
+  margin-bottom: 13px;
+  padding: 20px;
   border: 1px solid #eee8f4;
-  border-radius: 20px;
-  background: #fff;
-  box-shadow: 0 8px 25px rgba(60, 40, 90, 0.06);
-  transition: 0.2s ease;
-}
-
-.order-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(60, 40, 90, 0.09);
+  border-radius: 19px;
+  background: #ffffff;
+  box-shadow: 0 7px 22px rgba(60, 40, 90, 0.05);
 }
 
 .order-top {
@@ -371,30 +319,28 @@ a {
   justify-content: space-between;
   align-items: flex-start;
   gap: 20px;
-  margin-bottom: 16px;
+  margin-bottom: 15px;
 }
 
 .order-name {
-  color: #352d40;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
 }
 
 .order-id {
-  margin-top: 5px;
+  margin-top: 4px;
   color: #aaa1ae;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .status {
   flex-shrink: 0;
   padding: 7px 11px;
   border-radius: 20px;
-  background: #f0f0f0;
-  color: #777;
-  font-size: 11px;
+  background: #eeeeee;
+  color: #777777;
+  font-size: 10px;
   font-weight: 700;
-  white-space: nowrap;
 }
 
 .status.secured {
@@ -418,17 +364,16 @@ a {
 }
 
 .order-info {
-  padding-top: 16px;
+  padding-top: 14px;
   border-top: 1px solid #f0ebf5;
 }
 
 .info-row {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 25px;
-  margin-bottom: 10px;
-  font-size: 13px;
+  gap: 20px;
+  margin-bottom: 8px;
+  font-size: 12px;
   line-height: 1.5;
 }
 
@@ -437,25 +382,19 @@ a {
 }
 
 .info-row span:first-child {
-  flex-shrink: 0;
   color: #aaa1ae;
 }
 
 .info-row span:last-child {
   color: #4a4252;
-  font-weight: 500;
   text-align: right;
   word-break: break-word;
 }
 
-.hidden {
-  display: none;
-}
 
-
-/* ========================================
+/* =====================================
    UPDATES
-   ======================================== */
+   ===================================== */
 
 .updates-section {
   scroll-margin-top: 25px;
@@ -463,27 +402,24 @@ a {
 }
 
 .section-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .section-heading h2 {
-  font-size: 27px;
+  font-size: 26px;
 }
 
 .updates-list {
   display: grid;
-  gap: 14px;
+  gap: 12px;
 }
 
 .update-card {
-  padding: 24px;
+  padding: 21px;
   border: 1px solid #eee8f5;
-  border-radius: 20px;
-  background: #fff;
-  box-shadow: 0 7px 22px rgba(65, 45, 90, 0.05);
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(65, 45, 90, 0.045);
 }
 
 .update-meta {
@@ -491,18 +427,17 @@ a {
   justify-content: space-between;
   align-items: center;
   gap: 15px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   color: #aaa2ae;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
-  letter-spacing: 0.5px;
 }
 
 .update-tag {
-  padding: 6px 9px;
+  padding: 5px 9px;
   border-radius: 20px;
-  font-size: 9px;
-  letter-spacing: 0.5px;
+  font-size: 8px;
+  font-weight: 700;
 }
 
 .update-tag.shipping {
@@ -512,7 +447,7 @@ a {
 
 .update-tag.payment {
   background: #fff0f1;
-  color: #c05e68;
+  color: #bd5e69;
 }
 
 .update-tag.project {
@@ -521,61 +456,61 @@ a {
 }
 
 .update-card h3 {
-  margin-bottom: 8px;
+  margin-bottom: 7px;
   color: #382f42;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .update-card p {
   color: #817985;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.65;
 }
 
 
-/* ========================================
+/* =====================================
    TERMS & CONDITIONS
-   ======================================== */
+   ===================================== */
 
 .terms-section {
   scroll-margin-top: 25px;
-  margin-top: 65px;
-  padding: 35px;
+  margin-top: 55px;
+  padding: 30px;
   border: 1px solid #eee8f5;
-  border-radius: 26px;
-  background: #fff;
-  box-shadow: 0 10px 30px rgba(65, 45, 90, 0.05);
+  border-radius: 23px;
+  background: #ffffff;
+  box-shadow: 0 8px 25px rgba(65, 45, 90, 0.05);
 }
 
 .terms-section h2 {
-  margin-bottom: 8px;
-  font-size: 27px;
+  margin-bottom: 7px;
+  font-size: 26px;
 }
 
 .terms-intro {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   color: #8a828e;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.6;
 }
 
 .terms-list {
   display: grid;
-  gap: 9px;
+  gap: 8px;
 }
 
 .terms-list details {
   overflow: hidden;
   border: 1px solid #eee8f5;
-  border-radius: 14px;
+  border-radius: 13px;
   background: #fcfbfe;
 }
 
 .terms-list summary {
   position: relative;
-  padding: 16px 45px 16px 17px;
+  padding: 15px 43px 15px 16px;
   color: #4c4255;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   cursor: pointer;
   list-style: none;
@@ -589,9 +524,9 @@ a {
   content: "+";
   position: absolute;
   top: 50%;
-  right: 18px;
+  right: 17px;
   color: #9673d4;
-  font-size: 18px;
+  font-size: 17px;
   transform: translateY(-50%);
 }
 
@@ -600,20 +535,20 @@ a {
 }
 
 .terms-list details p {
-  padding: 0 17px 17px;
+  padding: 0 16px 16px;
   color: #817986;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.7;
 }
 
 
-/* ========================================
+/* =====================================
    FOOTER
-   ======================================== */
+   ===================================== */
 
 footer {
-  margin-top: 70px;
-  padding: 38px 20px 15px;
+  margin-top: 60px;
+  padding: 32px 20px 10px;
   border-top: 1px solid #e9e2f0;
   text-align: center;
 }
@@ -621,7 +556,7 @@ footer {
 .footer-logo {
   margin-bottom: 7px;
   color: #8f6ad8;
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 800;
 }
 
@@ -635,39 +570,34 @@ footer > p {
 .footer-links {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 20px;
-  color: #8e8595;
+  gap: 9px;
+  margin-top: 18px;
 }
 
 .footer-links a {
-  font-size: 9px;
+  color: #8e8595;
+  font-size: 8px;
   font-weight: 700;
   letter-spacing: 1px;
   text-decoration: none;
 }
 
-.footer-links a:hover {
-  color: #8f6ad8;
-}
-
 .footer-links span {
-  color: #d2cbd7;
+  color: #d0c8d6;
 }
 
 footer .copyright {
-  margin-top: 22px;
+  margin-top: 20px;
   color: #bbb4c0;
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 400;
   letter-spacing: 0;
 }
 
 
-/* ========================================
+/* =====================================
    TABLET
-   ======================================== */
+   ===================================== */
 
 @media (max-width: 750px) {
 
@@ -677,8 +607,8 @@ footer .copyright {
 
   .site-header {
     flex-direction: column;
-    gap: 18px;
-    margin-bottom: 30px;
+    gap: 17px;
+    margin-bottom: 28px;
   }
 
   .brand {
@@ -690,116 +620,82 @@ footer .copyright {
   }
 
   .hero {
-    padding: 60px 30px 35px;
+    padding: 50px 25px 30px;
   }
 
   .hero h1 {
-    font-size: 44px;
+    font-size: 42px;
   }
 }
 
 
-/* ========================================
+/* =====================================
    MOBILE
-   ======================================== */
-
-@media (max-width: 600px) {
-
-/* ========================================
-   MOBILE
-   ======================================== */
+   ===================================== */
 
 @media (max-width: 600px) {
 
   .container {
-    padding: 22px 14px 35px;
+    padding: 20px 13px 35px;
   }
 
   .logo {
-    font-size: 29px;
+    font-size: 28px;
   }
 
   .subtitle {
-    font-size: 8px;
-    letter-spacing: 2px;
+    font-size: 7px;
   }
 
   .nav {
     width: 100%;
     justify-content: center;
-    gap: 17px;
+    gap: 15px;
     flex-wrap: wrap;
   }
 
   .nav a {
-    font-size: 9px;
+    font-size: 8px;
   }
-
-
-  /* HERO */
 
   .hero {
-    margin-bottom: 25px;
-    padding: 45px 18px 25px;
-    border-radius: 24px;
-  }
-
-  .hero::before {
-    top: 18px;
-    right: 18px;
-    font-size: 48px;
+    padding: 42px 17px 23px;
+    border-radius: 22px;
   }
 
   .hero h1 {
-    font-size: 37px;
-    letter-spacing: -1.5px;
+    font-size: 35px;
   }
 
   .hero-description {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .hero-button {
     width: 100%;
-    padding: 14px 18px;
   }
-
-
-  /* FEATURES */
 
   .features {
     grid-template-columns: 1fr;
-    gap: 10px;
-    margin-top: 35px;
+    gap: 9px;
+    margin-top: 30px;
   }
 
   .feature {
-    min-height: auto;
-    padding: 18px;
+    padding: 17px;
   }
 
-
-  /* TRACKER */
-
   .search-box {
-    padding: 30px 18px;
-    border-radius: 22px;
+    padding: 28px 17px;
+    border-radius: 21px;
   }
 
   .search-box h2 {
-    font-size: 23px;
-  }
-
-  .search-box p {
-    font-size: 13px;
+    font-size: 22px;
   }
 
   .search-area {
     flex-direction: column;
-  }
-
-  .search-area input {
-    width: 100%;
   }
 
   .search-area button {
@@ -807,106 +703,45 @@ footer .copyright {
     padding: 14px;
   }
 
-
-  /* RESULTS */
-
-  .results-header {
-    align-items: flex-start;
-  }
-
-  .order-card {
-    padding: 18px;
-  }
-
   .order-top {
     flex-direction: column;
-    gap: 10px;
+    gap: 9px;
   }
 
   .status {
     width: fit-content;
   }
 
-  .info-row {
-    gap: 15px;
-  }
-
-
-  /* UPDATES */
-
-  .updates-section {
-    margin-top: 45px;
-  }
-
-  .section-heading h2 {
-    font-size: 24px;
-  }
-
   .update-card {
-    padding: 19px;
-    border-radius: 17px;
+    padding: 18px;
   }
-
-  .update-meta {
-    align-items: flex-start;
-  }
-
-  .update-card h3 {
-    font-size: 15px;
-  }
-
-  .update-card p {
-    font-size: 12px;
-  }
-
-
-  /* TERMS */
 
   .terms-section {
-    margin-top: 50px;
-    padding: 25px 17px;
-    border-radius: 22px;
+    padding: 23px 16px;
   }
 
+  .section-heading h2,
   .terms-section h2 {
-    font-size: 24px;
+    font-size: 23px;
   }
-
-  .terms-list summary {
-    font-size: 12px;
-  }
-
-
-  /* FOOTER */
-
-  footer {
-    margin-top: 50px;
-    padding-top: 30px;
-  }
-
 }
 
 
-/* ========================================
-   VERY SMALL MOBILE
-   ======================================== */
+/* =====================================
+   SMALL PHONE
+   ===================================== */
 
 @media (max-width: 380px) {
 
-  .nav {
-    gap: 12px;
-  }
-
-  .nav a {
-    font-size: 8px;
-  }
-
   .hero h1 {
-    font-size: 33px;
+    font-size: 31px;
   }
 
   .logo {
-    font-size: 27px;
+    font-size: 26px;
   }
 
+  .nav {
+    gap: 11px;
+  }
 }
