@@ -1,81 +1,579 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>winri.go — GO Tracker</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="WINRI.GO — Track your GO orders and stay updated."
+  >
+
+  <title>WINRI.GO — Your GO, Made Simple</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <header class="site-header">
-  <div class="brand">
-    <div class="logo">WINRI.GO ♡</div>
-    <div class="subtitle">YOUR GO, MADE SIMPLE.</div>
-  </div>
 
-  <nav class="nav">
-    <a href="#home">HOME</a>
-    <a href="#tracker">TRACK</a>
-    <a href="#updates">UPDATES</a>
-    <a href="#terms">T&C</a>
-  </nav>
-</header>
+  <!-- =====================
+       HEADER
+       ===================== -->
 
- <main id="home">
+  <header class="site-header">
 
-  <section class="search-box" id="tracker">
+    <div class="brand">
 
-        <h1>Track your order ♡</h1>
+      <div class="logo">
+        WINRI.GO ♡
+      </div>
 
-        <p>
-          Enter your Telegram username to check your GO orders.
-        </p>
+      <div class="subtitle">
+        YOUR GO, MADE SIMPLE.
+      </div>
 
-        <div class="search-area">
-          <input
-            type="text"
-            id="usernameInput"
-            placeholder="@username"
-            autocomplete="off"
-          >
+    </div>
 
-          <button onclick="searchOrders()">
-            Search
-          </button>
+
+    <nav class="nav">
+
+      <a href="#home">
+        HOME
+      </a>
+
+      <a href="#tracker">
+        TRACK
+      </a>
+
+      <a href="#updates">
+        UPDATES
+      </a>
+
+      <a href="#terms">
+        T&C
+      </a>
+
+    </nav>
+
+  </header>
+
+
+
+  <main>
+
+
+    <!-- =====================
+         HOME
+         ===================== -->
+
+    <section
+      class="hero"
+      id="home"
+    >
+
+      <div class="hero-badge">
+        ♡ WELCOME TO WINRI.GO
+      </div>
+
+
+      <h1>
+        Your GO,<br>
+        made simple.
+      </h1>
+
+
+      <p class="hero-description">
+
+        Track your orders, check shipment updates
+        and stay updated with your GO — all in one place.
+
+      </p>
+
+
+      <a
+        href="#tracker"
+        class="hero-button"
+      >
+        Track My Order
+      </a>
+
+
+      <div class="features">
+
+        <div class="feature">
+
+          <div class="feature-icon">
+            ♡
+          </div>
+
+          <strong>
+            Easy Tracking
+          </strong>
+
+          <span>
+            Check your orders anytime.
+          </span>
+
         </div>
 
-        <div id="message"></div>
 
-      </section>
+        <div class="feature">
 
+          <div class="feature-icon">
+            ✦
+          </div>
 
-      <section id="results" class="results hidden">
+          <strong>
+            GO Updates
+          </strong>
 
-        <div class="results-header">
-          <h2>Your Orders</h2>
-          <span id="usernameDisplay"></span>
+          <span>
+            Follow your order journey.
+          </span>
+
         </div>
 
-        <div id="orderList"></div>
 
-      </section>
+        <div class="feature">
 
-    </main>
+          <div class="feature-icon">
+            ☻
+          </div>
+
+          <strong>
+            Here for You
+          </strong>
+
+          <span>
+            Contact us via Telegram.
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
 
 
-    <footer>
-      <p>winri.go ♡ K-pop GO tracker</p>
-    </footer>
 
-  </div>
+    <!-- =====================
+         TRACKER
+         ===================== -->
+
+    <section
+      class="search-box"
+      id="tracker"
+    >
+
+      <div class="section-label">
+        ORDER TRACKER
+      </div>
+
+
+      <h2>
+        Track your order ♡
+      </h2>
+
+
+      <p>
+
+        Enter your Telegram username
+        to check your GO order(s).
+
+      </p>
+
+
+      <div class="search-area">
+
+        <input
+          type="text"
+          id="usernameInput"
+          placeholder="@username"
+          autocomplete="off"
+        >
+
+
+        <button onclick="searchOrders()">
+          Search
+        </button>
+
+      </div>
+
+
+      <div id="message"></div>
+
+    </section>
+
+
+
+    <!-- =====================
+         SEARCH RESULTS
+         ===================== -->
+
+    <section
+      id="results"
+      class="results hidden"
+    >
+
+      <div class="results-header">
+
+        <h2>
+          Your Orders
+        </h2>
+
+        <span id="usernameDisplay"></span>
+
+      </div>
+
+
+      <div id="orderList"></div>
+
+    </section>
+
+
+
+    <!-- =====================
+         UPDATES
+         ===================== -->
+
+    <section
+      class="updates-section"
+      id="updates"
+    >
+
+      <div class="section-heading">
+
+        <div>
+
+          <div class="section-label">
+            WHAT'S NEW
+          </div>
+
+          <h2>
+            Latest Updates
+          </h2>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="updates-list">
+
+
+        <!-- UPDATE 1 -->
+
+        <article class="update-card">
+
+          <div class="update-meta">
+
+            <span>
+              12 SEP 2026
+            </span>
+
+            <span class="update-tag shipping">
+              SHIPPING
+            </span>
+
+          </div>
+
+
+          <h3>
+            CORTIS Album GO
+          </h3>
+
+
+          <p>
+            Shipment departed Korea.
+            Further updates will be posted here
+            once the parcel arrives.
+          </p>
+
+        </article>
+
+
+
+        <!-- UPDATE 2 -->
+
+        <article class="update-card">
+
+          <div class="update-meta">
+
+            <span>
+              10 SEP 2026
+            </span>
+
+            <span class="update-tag payment">
+              PAYMENT
+            </span>
+
+          </div>
+
+
+          <h3>
+            EMS Payment Reminder
+          </h3>
+
+
+          <p>
+            Please check your outstanding EMS payment
+            and complete payment before the stated deadline.
+          </p>
+
+        </article>
+
+
+
+        <!-- UPDATE 3 -->
+
+        <article class="update-card">
+
+          <div class="update-meta">
+
+            <span>
+              08 SEP 2026
+            </span>
+
+            <span class="update-tag project">
+              PROJECT
+            </span>
+
+          </div>
+
+
+          <h3>
+            New GO Coming Soon ♡
+          </h3>
+
+
+          <p>
+            A new GO is on the way.
+            Stay tuned for more information.
+          </p>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================
+         TERMS
+         ===================== -->
+
+    <section
+      class="terms-section"
+      id="terms"
+    >
+
+      <div class="section-label">
+        PLEASE READ
+      </div>
+
+
+      <h2>
+        Terms & Conditions
+      </h2>
+
+
+      <p class="terms-intro">
+        Please read our GO terms carefully
+        before placing an order.
+      </p>
+
+
+
+      <div class="terms-list">
+
+
+        <details>
+
+          <summary>
+            01 — General
+          </summary>
+
+          <p>
+            By joining a WINRI.GO group order,
+            you agree to the terms stated on this page.
+            Please make sure all information submitted
+            is correct.
+          </p>
+
+        </details>
+
+
+
+        <details>
+
+          <summary>
+            02 — Payment
+          </summary>
+
+          <p>
+            Payments must be completed before the
+            stated deadline. Please keep your payment
+            proof until your order has been completed.
+          </p>
+
+        </details>
+
+
+
+        <details>
+
+          <summary>
+            03 — EMS & Postage
+          </summary>
+
+          <p>
+            International shipping, EMS and local
+            postage may be collected separately
+            depending on the group order.
+          </p>
+
+        </details>
+
+
+
+        <details>
+
+          <summary>
+            04 — Order Timeline
+          </summary>
+
+          <p>
+            Group orders may take time to arrive.
+            Estimated arrival dates are not guaranteed
+            and delays may occur.
+          </p>
+
+        </details>
+
+
+
+        <details>
+
+          <summary>
+            05 — Cancellation & Refund
+          </summary>
+
+          <p>
+            Cancellation and refund eligibility
+            depends on the status and conditions
+            of each group order.
+          </p>
+
+        </details>
+
+
+
+        <details>
+
+          <summary>
+            06 — Lost or Damaged Items
+          </summary>
+
+          <p>
+            WINRI.GO will assist where possible
+            if an item is lost or damaged during
+            shipment. Resolution may depend on
+            the courier or supplier.
+          </p>
+
+        </details>
+
+
+
+        <details>
+
+          <summary>
+            07 — Customs & Delays
+          </summary>
+
+          <p>
+            Customs clearance and international
+            shipping delays are outside our direct
+            control. Updates will be provided
+            whenever available.
+          </p>
+
+        </details>
+
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =====================
+       FOOTER
+       ===================== -->
+
+  <footer>
+
+    <div class="footer-logo">
+      WINRI.GO ♡
+    </div>
+
+    <p>
+      YOUR GO, MADE SIMPLE.
+    </p>
+
+    <div class="footer-links">
+
+      <a href="#home">
+        HOME
+      </a>
+
+      <span>·</span>
+
+      <a href="#tracker">
+        TRACK
+      </a>
+
+      <span>·</span>
+
+      <a href="#updates">
+        UPDATES
+      </a>
+
+      <span>·</span>
+
+      <a href="#terms">
+        T&C
+      </a>
+
+    </div>
+
+    <p class="copyright">
+      © 2026 WINRI.GO
+    </p>
+
+  </footer>
+
+
+</div>
+
 
 <script src="scripts.js"></script>
-  
+
 </body>
+
 </html>
