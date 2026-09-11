@@ -18,7 +18,6 @@ body {
   padding: 30px 18px;
 }
 
-
 /* HEADER */
 
 header {
@@ -38,7 +37,6 @@ header {
   margin-top: 5px;
   opacity: 0.6;
 }
-
 
 /* SEARCH */
 
@@ -93,7 +91,6 @@ header {
   opacity: 0.85;
 }
 
-
 /* MESSAGE */
 
 #message {
@@ -101,7 +98,6 @@ header {
   font-size: 13px;
   color: #777;
 }
-
 
 /* RESULTS */
 
@@ -124,7 +120,6 @@ header {
   font-size: 13px;
   color: #8f6ad8;
 }
-
 
 /* ORDER CARD */
 
@@ -154,6 +149,8 @@ header {
   margin-top: 4px;
 }
 
+/* STATUS */
+
 .status {
   white-space: nowrap;
   font-size: 12px;
@@ -182,6 +179,8 @@ header {
   color: #b35d7c;
 }
 
+/* ORDER INFORMATION */
+
 .order-info {
   border-top: 1px solid #eee;
   padding-top: 14px;
@@ -190,6 +189,7 @@ header {
 .info-row {
   display: flex;
   justify-content: space-between;
+  gap: 20px;
   font-size: 13px;
   margin-bottom: 8px;
 }
@@ -198,6 +198,16 @@ header {
   color: #999;
 }
 
+.info-row span:last-child {
+  text-align: right;
+  word-break: break-word;
+}
+
+/* HIDDEN */
+
+.hidden {
+  display: none;
+}
 
 /* FOOTER */
 
@@ -207,7 +217,6 @@ footer {
   font-size: 11px;
   color: #999;
 }
-
 
 /* MOBILE */
 
@@ -231,6 +240,10 @@ footer {
 
   .order-top {
     flex-direction: column;
+  }
+
+  .status {
+    width: fit-content;
   }
 
 }
