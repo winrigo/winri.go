@@ -705,6 +705,12 @@ footer .copyright {
 
 @media (max-width: 600px) {
 
+/* ========================================
+   MOBILE
+   ======================================== */
+
+@media (max-width: 600px) {
+
   .container {
     padding: 22px 14px 35px;
   }
@@ -720,6 +726,7 @@ footer .copyright {
 
   .nav {
     width: 100%;
+    justify-content: center;
     gap: 17px;
     flex-wrap: wrap;
   }
@@ -728,7 +735,8 @@ footer .copyright {
     font-size: 9px;
   }
 
-  /* Hero */
+
+  /* HERO */
 
   .hero {
     margin-bottom: 25px;
@@ -751,5 +759,154 @@ footer .copyright {
     font-size: 13px;
   }
 
+  .hero-button {
+    width: 100%;
+    padding: 14px 18px;
+  }
+
+
+  /* FEATURES */
+
   .features {
-    grid-template-columns: 1fr
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 35px;
+  }
+
+  .feature {
+    min-height: auto;
+    padding: 18px;
+  }
+
+
+  /* TRACKER */
+
+  .search-box {
+    padding: 30px 18px;
+    border-radius: 22px;
+  }
+
+  .search-box h2 {
+    font-size: 23px;
+  }
+
+  .search-box p {
+    font-size: 13px;
+  }
+
+  .search-area {
+    flex-direction: column;
+  }
+
+  .search-area input {
+    width: 100%;
+  }
+
+  .search-area button {
+    width: 100%;
+    padding: 14px;
+  }
+
+
+  /* RESULTS */
+
+  .results-header {
+    align-items: flex-start;
+  }
+
+  .order-card {
+    padding: 18px;
+  }
+
+  .order-top {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .status {
+    width: fit-content;
+  }
+
+  .info-row {
+    gap: 15px;
+  }
+
+
+  /* UPDATES */
+
+  .updates-section {
+    margin-top: 45px;
+  }
+
+  .section-heading h2 {
+    font-size: 24px;
+  }
+
+  .update-card {
+    padding: 19px;
+    border-radius: 17px;
+  }
+
+  .update-meta {
+    align-items: flex-start;
+  }
+
+  .update-card h3 {
+    font-size: 15px;
+  }
+
+  .update-card p {
+    font-size: 12px;
+  }
+
+
+  /* TERMS */
+
+  .terms-section {
+    margin-top: 50px;
+    padding: 25px 17px;
+    border-radius: 22px;
+  }
+
+  .terms-section h2 {
+    font-size: 24px;
+  }
+
+  .terms-list summary {
+    font-size: 12px;
+  }
+
+
+  /* FOOTER */
+
+  footer {
+    margin-top: 50px;
+    padding-top: 30px;
+  }
+
+}
+
+
+/* ========================================
+   VERY SMALL MOBILE
+   ======================================== */
+
+@media (max-width: 380px) {
+
+  .nav {
+    gap: 12px;
+  }
+
+  .nav a {
+    font-size: 8px;
+  }
+
+  .hero h1 {
+    font-size: 33px;
+  }
+
+  .logo {
+    font-size: 27px;
+  }
+
+}
